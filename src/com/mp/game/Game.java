@@ -1,5 +1,11 @@
 package com.mp.game;
 
-public class Game {
+import com.mp.planetStates.StateEarth;
 
+public class Game {
+	
+	
+	public static void main(String[] args) {
+		
+	}
 }
