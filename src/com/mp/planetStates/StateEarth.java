@@ -1,8 +1,21 @@
 package com.mp.planetStates;
+import com.mp.gameAbstracts.PlanetState;
+import com.mp.gameInterfaces.PLANETState;
 
-import com.mp.gameAbstracts.Planet;
+public class StateEarth extends PlanetState{
 
-public class StateEarth extends Planet{
+	private StateEarth() {
+		super();
+	}
+	
+	private static class StateEarthHolder {
+		private static final StateEarth INSTANCE = new StateEarth();
+	}
+	
+	public static StateEarth getInstance() {
+		return StateEarthHolder.INSTANCE;
+	}
+	
 
 	@Override
 	public void showCurrentPlanet() {

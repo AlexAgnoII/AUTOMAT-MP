@@ -1,9 +1,21 @@
 package com.mp.planetStates;
 
-import com.mp.gameAbstracts.Planet;
+import com.mp.gameAbstracts.PlanetState;
 
-public class StateMars extends Planet{
-
+public class StateMars extends PlanetState{
+	
+	private StateMars() {
+		super();
+	}
+	
+	private static class StateMarsHolder {
+		private static final StateMars INSTANCE = new StateMars();
+	}
+	
+	public static StateMars getInstance() {
+		return StateMarsHolder.INSTANCE;
+	}
+	
 	@Override
 	public void showCurrentPlanet() {
 		// TODO Auto-generated method stub
