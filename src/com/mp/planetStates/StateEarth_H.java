@@ -1,12 +1,21 @@
 package com.mp.planetStates;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mp.game.GameMessages;
 import com.mp.gameAbstracts.PlanetState;
 
 public class StateEarth_H extends PlanetState {
 
 	protected StateEarth_H() {
 		super("Earth  H", PlanetState.EARTH);
-		// TODO Auto-generated constructor stub
+		List<Integer> validChoices = new ArrayList<Integer>();
+		int max = 4;
+		for(int i = 0; i < max; i++) {
+			validChoices.add(i+1);
+		}
+		this.validChoices = validChoices;
 	}
 	
 	private static class StateEarth_H_Holder {
@@ -41,8 +50,10 @@ public class StateEarth_H extends PlanetState {
 	public PlanetState nextPlanet(int input) {
 		PlanetState newPlanetState = null;
 		switch(input) {
+			case 1: System.out.println(GameMessages.BADEND_2); 
+			        break;
 			case 2: newPlanetState = StateMars_B.getInstance(); break;
-			case 3: //newPlanetState = StateMars_E.getInstance(); break;
+			case 3: newPlanetState = StateMars_E.getInstance(); break;
 			case 4: newPlanetState = StateMars_H.getInstance(); break;
 			default: System.out.println("DEAD (Earth H)");
 		}

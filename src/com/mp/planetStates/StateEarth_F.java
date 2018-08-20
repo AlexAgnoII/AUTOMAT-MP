@@ -1,5 +1,8 @@
 package com.mp.planetStates;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.mp.gameAbstracts.PlanetState;
 import com.mp.gameInterfaces.PLANETState;
 
@@ -8,6 +11,12 @@ public class StateEarth_F extends PlanetState{
 	protected StateEarth_F() {
 		super("Earth F", PLANETState.EARTH);
 		// TODO Auto-generated constructor stub
+		List<Integer> validChoices = new ArrayList<Integer>();
+		int max = 3;
+		for(int i = 0; i < max; i++) {
+			validChoices.add(i+1);
+		}
+		this.validChoices = validChoices;
 	}
 	
 	private static class StateEarth_F_Holder {

@@ -1,5 +1,9 @@
 package com.mp.planetStates;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mp.game.GameMessages;
 import com.mp.gameAbstracts.PlanetState;
 import com.mp.gameInterfaces.PLANETState;
 
@@ -7,6 +11,13 @@ public class StateEarth_D extends PlanetState{
 
 	protected StateEarth_D() {
 		super("Earth D", PLANETState.EARTH);
+		
+		List<Integer> validChoices = new ArrayList<Integer>();
+		int max = 6;
+		for(int i = 0; i < max; i++) {
+			validChoices.add(i+1);
+		}
+		this.validChoices = validChoices;
 	}
 	
 	private static class StateEarth_D_Holder {
@@ -38,6 +49,9 @@ public class StateEarth_D extends PlanetState{
 	public PlanetState nextPlanet(int input) {
 		PlanetState newPlanetState = null;
 		switch(input) {
+			case 1: System.out.println(GameMessages.BADEND_4);break;
+			case 3: System.out.println(GameMessages.BADEND_3);break;
+			
 			case 2: newPlanetState = StateMars_C.getInstance(); break;
 			case 4: newPlanetState = StateMars_D.getInstance(); break;
 			case 5: newPlanetState = StateMars_E.getInstance(); break;

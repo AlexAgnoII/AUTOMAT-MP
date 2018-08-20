@@ -1,5 +1,8 @@
 package com.mp.planetStates;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.mp.gameAbstracts.PlanetState;
 import com.mp.gameInterfaces.PLANETState;
 
@@ -7,6 +10,12 @@ public class StateMars extends PlanetState{
 	
 	private StateMars() {
 		super("Mars", PLANETState.MARS);
+		List<Integer> validChoices = new ArrayList<Integer>();
+		int max = 3;
+		for(int i = 0; i < max; i++) {
+			validChoices.add(i+1);
+		}
+		this.validChoices = validChoices;
 	}
 	
 	private static class StateMarsHolder {

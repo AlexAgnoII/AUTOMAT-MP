@@ -1,4 +1,8 @@
 package com.mp.planetStates;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mp.game.GameMessages;
 import com.mp.gameAbstracts.PlanetState;
 import com.mp.gameInterfaces.PLANETState;
 
@@ -6,6 +10,12 @@ public class StateEarth extends PlanetState{
 
 	private StateEarth() {
 		super("Earth", PLANETState.EARTH);
+		List<Integer> validChoices = new ArrayList<Integer>();
+		int max = 11;
+		for(int i = 0; i < max; i++) {
+			validChoices.add(i+1);
+		}
+		this.validChoices = validChoices;
 	}
 	
 	private static class StateEarthHolder {
@@ -38,8 +48,32 @@ public class StateEarth extends PlanetState{
 	public PlanetState nextPlanet(int input) {
 		PlanetState newPlanetState = null;
 		switch(input) {
-			case 9: newPlanetState =  StateMars.getInstance(); 
+			case 1:System.out.print(GameMessages.BADEND_1);
+				   System.out.print(GameMessages.BADEND_2);
+				   System.out.print(GameMessages.BADEND_3);
+				   System.out.print(GameMessages.BADEND_4);
+				   break;
+
+			case 5: System.out.println(GameMessages.BADEND_3);
+			        System.out.print(GameMessages.BADEND_4);
 			        break;
+			
+			case 10: System.out.print(GameMessages.BADEND_2);
+			        break;
+			case 2: 
+			case 6: System.out.print(GameMessages.BADEND_2);
+			        System.out.print(GameMessages.BADEND_4);
+			        break;			
+			case 4: 
+			case 8: System.out.print(GameMessages.BADEND_1);
+			        System.out.println(GameMessages.BADEND_3);
+			        break;
+			case 3: 
+			case 7: 
+			case 11: System.out.print(GameMessages.BADEND_1); 
+			         break;
+				
+			case 9: newPlanetState =  StateMars.getInstance(); break;
 			default: System.out.println("DEAD (Earth State");
 			        
 		}

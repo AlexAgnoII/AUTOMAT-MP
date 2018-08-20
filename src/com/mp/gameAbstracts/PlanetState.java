@@ -11,7 +11,7 @@ import com.mp.gameInterfaces.PLANETState;
 public abstract class PlanetState implements PLANETState{	
 	protected String name; //state name of planet
 	protected String currentPlanetName;
-	protected PlanetState previousPlanet;
+	protected List<Integer> validChoices;
 	
 	protected PlanetState(String name, String currentPlanetName) {
 		this.name = name;
@@ -25,5 +25,9 @@ public abstract class PlanetState implements PLANETState{
 		System.out.println("\nChoose your move: ");
 		this.showPossibleMoves();
 		System.out.println("\n\n");
+	}
+	
+	public List<Integer> getValidChoices() {
+		return this.validChoices;
 	}
 }

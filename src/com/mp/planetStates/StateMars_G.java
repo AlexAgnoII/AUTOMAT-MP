@@ -1,5 +1,8 @@
 package com.mp.planetStates;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.mp.game.GameMessages;
 import com.mp.gameAbstracts.PlanetState;
 import com.mp.gameInterfaces.PLANETState;
@@ -9,6 +12,8 @@ public class StateMars_G extends PlanetState{
 	protected StateMars_G() {
 		super("Mars G", PLANETState.MARS);
 		// TODO Auto-generated constructor stub
+		List<Integer> validChoices = new ArrayList<Integer>();
+		this.validChoices = validChoices;
 	}
 	
 	private static class StateMars_G_Holder {
