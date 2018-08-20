@@ -38,7 +38,7 @@ public class StateMars_B extends PlanetState{
 	public PlanetState nextPlanet(int input) {
 		PlanetState newPlanetState = null;
 		switch(input) {
-			case 3: //newPlanetState = StateEarth_H.getInstance() break;
+			case 2: newPlanetState = StateEarth_H.getInstance(); break;
 			case 4: newPlanetState = StateEarth_E.getInstance(); break;
 			case 5: newPlanetState = StateEarth_B.getInstance(); break;
 			case 6: newPlanetState = StateEarth_A.getInstance(); break;

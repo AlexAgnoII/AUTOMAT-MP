@@ -37,7 +37,7 @@ public class StateEarth_C extends PlanetState {
 		PlanetState newPlanetState = null;
 		
 		switch(input) {
-			case 6: //newPlanetState = StateMars_C.getInstance(); break;
+			case 6: newPlanetState = StateMars_C.getInstance(); break;
 			case 8: newPlanetState = StateMars_A.getInstance(); break;
 			default: System.out.println("DEAD (Earth C)");
 		}

@@ -40,7 +40,7 @@ public class StateMars_A extends PlanetState{
 		switch(input) {
 			case 4: newPlanetState = StateEarth_A.getInstance(); break;
 			case 5: newPlanetState = StateEarth_B.getInstance(); break;
-			case 6: //newPlanetState = StateEarth_C.getInstance(); break;
+			case 6: newPlanetState = StateEarth_C.getInstance(); break;
 			default: System.out.println("DEAD (Mars A)");
 		}
 		
