@@ -5,7 +5,7 @@ import com.mp.gameAbstracts.PlanetState;
 public class StateEarth_A extends PlanetState{
 	
 	private StateEarth_A() {
-		super("Earth A");
+		super("Earth A", "Earth");
 	}
 	
 	private static class StateEarth_A_Holder {

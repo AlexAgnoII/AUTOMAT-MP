@@ -7,7 +7,7 @@ public class StateEarth_B extends PlanetState{
 
 	
 	private StateEarth_B() {
-		super("Earth B");
+		super("Earth B", "Earth");
 	}
 	
 	private static class StateEarth_B_Holder {

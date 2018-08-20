@@ -5,7 +5,7 @@ import com.mp.gameInterfaces.PLANETState;
 public class StateEarth extends PlanetState{
 
 	private StateEarth() {
-		super("Earth");
+		super("Earth", "Earth");
 	}
 	
 	private static class StateEarthHolder {
@@ -17,9 +17,6 @@ public class StateEarth extends PlanetState{
 	}
 
 	public void showCurrentAndOtherPlanet() {
-		System.out.println("Current State: " + this.name);
-		System.out.println("Current Planet: Earth");
-		
 		System.out.println("EARTH    |    MARS");
 		System.out.println("Human    |     -  ");
 		System.out.println("Human    |     -  ");
