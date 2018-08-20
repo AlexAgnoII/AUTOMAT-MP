@@ -43,7 +43,7 @@ public class StateMars_G extends PlanetState{
 	@Override
 	public PlanetState nextPlanet(int input) {
 		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 }

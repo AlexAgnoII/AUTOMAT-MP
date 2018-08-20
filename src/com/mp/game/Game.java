@@ -47,6 +47,8 @@ public class Game {
 	}
 	
 	public void gameOver() {
+		if(planet instanceof StateMars_G)
+			planet.display();
 
 		System.out.println("Do you want to play again?");
 		System.out.println("1 - Yes");
