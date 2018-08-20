@@ -5,7 +5,7 @@ import com.mp.gameInterfaces.PLANETState;
 public class StateEarth extends PlanetState{
 
 	private StateEarth() {
-		super("Earth", "Earth");
+		super("Earth", PLANETState.EARTH);
 	}
 	
 	private static class StateEarthHolder {
@@ -38,19 +38,9 @@ public class StateEarth extends PlanetState{
 	public PlanetState nextPlanet(int input) {
 		PlanetState newPlanetState = null;
 		switch(input) {
-			case 1: 
-			case 2: 
-			case 3: 
-			case 4: 
-			case 5: 
-			case 6: 
-			case 7: 
-			case 8: 
-			case 10:
-			case 11:break;
 			case 9: newPlanetState =  StateMars.getInstance(); 
 			        break;
-			default: System.out.println("Wrong input! (Earth State");
+			default: System.out.println("DEAD (Earth State");
 			        
 		}
 		

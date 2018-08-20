@@ -7,7 +7,7 @@ public class StateEarth_B extends PlanetState{
 
 	
 	private StateEarth_B() {
-		super("Earth B", "Earth");
+		super("Earth B", PLANETState.EARTH);
 	}
 	
 	private static class StateEarth_B_Holder {
@@ -20,22 +20,35 @@ public class StateEarth_B extends PlanetState{
 	
 	@Override
 	public void showCurrentAndOtherPlanet() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("EARTH    |    MARS");
+		System.out.println("Human    |     -  ");
+		System.out.println("Human    |     -  ");
+		System.out.println("Lion     |     -  ");
+		System.out.println("  -      |    Cow");
+		System.out.println("Grain    |     -  ");
 	}
 
-	@Override
 	public void showPossibleMoves() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("1 - Human        | 5 - Human Lion");
+		System.out.println("2 - Lion         | 6 - Human Grain");
+		System.out.println("3 - Grain        | 7 - Lion Grain");
+		System.out.println("4 - Human Human  | ");
 	}
 	
 
 	@Override
 	public PlanetState nextPlanet(int input) {
-		return null;
-		// TODO Auto-generated method stub
+		PlanetState newPlanetState = null;
+		switch(input) {
+			case 2: newPlanetState = StateMars.getInstance(); break;
+			case 4: //newPlanetState = StateMars_C.getInstance(); break;
+			case 5: newPlanetState = StateMars_A.getInstance(); break;
+			case 7: newPlanetState = StateMars_B.getInstance(); break;
+			default: System.out.println("DEAD (Earth B)");
+			        
+		}
 		
+		return newPlanetState;
 	}
 
 

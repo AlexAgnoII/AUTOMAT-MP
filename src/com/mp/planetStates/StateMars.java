@@ -6,7 +6,7 @@ import com.mp.gameInterfaces.PLANETState;
 public class StateMars extends PlanetState{
 	
 	private StateMars() {
-		super("Mars", "Mars");
+		super("Mars", PLANETState.MARS);
 	}
 	
 	private static class StateMarsHolder {
@@ -26,7 +26,6 @@ public class StateMars extends PlanetState{
 		System.out.println("  -      |    Lion");
 		System.out.println("  -      |    Cow");
 		System.out.println("Grain    |     -  ");
-		
 	}
 
 
@@ -40,13 +39,10 @@ public class StateMars extends PlanetState{
 	public PlanetState nextPlanet(int input) {
 		PlanetState newPlanetState = null;
 		switch(input) {
-			case 1: newPlanetState = StateEarth_A.getInstance(); 
-			        break;
-			case 2: newPlanetState = StateEarth_B.getInstance();
-			        break;
-			case 3: break;
-			default: System.out.println("Wrong input! (Mars state)");
-			        
+			case 1: newPlanetState = StateEarth_A.getInstance(); break;
+			case 2: newPlanetState = StateEarth_B.getInstance(); break;
+			case 3: newPlanetState = StateEarth.getInstance(); break;
+			default: System.out.println("Something is wrong (Mars state)"); 
 		}
 		
 		return newPlanetState;
