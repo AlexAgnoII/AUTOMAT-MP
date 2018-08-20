@@ -42,7 +42,7 @@ public class StateMars_B extends PlanetState{
 			case 4: newPlanetState = StateEarth_E.getInstance(); break;
 			case 5: newPlanetState = StateEarth_B.getInstance(); break;
 			case 6: newPlanetState = StateEarth_A.getInstance(); break;
-			default: System.out.println("Wrong input! (Mars B)");
+			default: System.out.println("DEAD! (Mars B)");
 		}
 		
 		return newPlanetState;
