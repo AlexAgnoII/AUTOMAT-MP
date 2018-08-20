@@ -1,4 +1,5 @@
 package com.mp.gameInterfaces;
+import com.mp.gameAbstracts.PlanetState;
 
 /**
  * 
@@ -6,7 +7,7 @@ package com.mp.gameInterfaces;
  * @description an interface that shows a blueprint of what a planetstate should do.
  */
 public interface PLANETState {
-	public void showCurrentPlanet();
-	public void showOtherPlanet();
-	public void nextPlanet(int input);
+	public void showCurrentAndOtherPlanet(); //show current and other planet and its contents
+	public void showPossibleMoves(); //show possible moves on this current planet
+	public PlanetState nextPlanet(int input); //sets the next state.
 }

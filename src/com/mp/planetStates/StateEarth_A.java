@@ -5,7 +5,7 @@ import com.mp.gameAbstracts.PlanetState;
 public class StateEarth_A extends PlanetState{
 	
 	private StateEarth_A() {
-		super();
+		super("Earth A");
 	}
 	
 	private static class StateEarth_A_Holder {
@@ -14,22 +14,18 @@ public class StateEarth_A extends PlanetState{
 	public static StateEarth_A getInstance() {
 		return StateEarth_A_Holder.INSTANCE;
 	}
-
-	@Override
-	public void showCurrentPlanet() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void showOtherPlanet() {
-		// TODO Auto-generated method stub
+	
+	public void showCurrentAndOtherPlanet() {
 		
 	}
 
-	@Override
-	public void nextPlanet(int input) {
-		// TODO Auto-generated method stub
+	public void showPossibleMoves() {
 		
 	}
+
+	public PlanetState nextPlanet(int input) {
+		return null;
+	}
+
 
 }

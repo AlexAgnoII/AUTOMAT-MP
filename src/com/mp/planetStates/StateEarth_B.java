@@ -1,12 +1,13 @@
 package com.mp.planetStates;
 
 import com.mp.gameAbstracts.PlanetState;
+import com.mp.gameInterfaces.PLANETState;
 
 public class StateEarth_B extends PlanetState{
 
 	
 	private StateEarth_B() {
-		super();
+		super("Earth B");
 	}
 	
 	private static class StateEarth_B_Holder {
@@ -18,21 +19,24 @@ public class StateEarth_B extends PlanetState{
 	}
 	
 	@Override
-	public void showCurrentPlanet() {
+	public void showCurrentAndOtherPlanet() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void showOtherPlanet() {
+	public void showPossibleMoves() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+	@Override
+	public PlanetState nextPlanet(int input) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void nextPlanet(int input) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
