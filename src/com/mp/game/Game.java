@@ -11,24 +11,27 @@ import com.mp.planetStates.StateMars_G;
 public class Game {
 	
 	private Scanner sc = new Scanner(System.in);
-	private int input;
+	private int input = 0;
 	private PlanetState planet;
+	private Instruction instruction;
 	private List<Integer> validChoices = new ArrayList<Integer>();
-	private static final int YES = 1;
-	private static final int NO = 2;
+	private final int YES = 1;
+	private final int NO = 2;
+	private final int INSTRUCTION_PLEASE = 0;
+	private final int STOP = -1;
 
 	
 	public Game() {
+		instruction = Instruction.getInstance();
 		validChoices.add(this.YES);
 		validChoices.add(this.NO);
-		//initial planet
 		initializeWorld();
 		play();
 	}
 	
 	public void play() {
 		
-		while(input != -1) {
+		while(input != this.STOP) {
 			planet.display();
 			
 			do {
@@ -36,10 +39,15 @@ public class Game {
 				input = sc.nextInt();
 			}while(validateInput(planet.getValidChoices(), input));
 			
-			setPlanetState(planet.nextPlanet(input));
+			if(input == this.INSTRUCTION_PLEASE) {
+				instruction.guide(planet);
+			}
+				
+			else 
+				setPlanetState(planet.nextPlanet(input));
 			
 			if(planet == null || planet instanceof StateMars_G) {
-				input = -1;
+				input = this.STOP;
 			}
 		}
 		
@@ -59,7 +67,7 @@ public class Game {
 			input = sc.nextInt();
 		}while(validateInput(validChoices,input));
 				
-		if(input == 1) {
+		if(input == this.YES) {
 			reset();
 			play();
 		}
@@ -75,8 +83,14 @@ public class Game {
 			}
 		}
 		
-		if(!valid) {
-			System.out.println("Please enter a valid choice!");
+		if(input == 0) {
+			return false; //break loop, meaning its valid
+		}
+		
+		else {
+			if(!valid) {
+				System.out.println("Please enter a valid choice!");
+			}
 		}
 		
 		return !valid;

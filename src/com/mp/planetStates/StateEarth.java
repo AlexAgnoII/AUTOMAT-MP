@@ -48,29 +48,29 @@ public class StateEarth extends PlanetState{
 	public PlanetState nextPlanet(int input) {
 		PlanetState newPlanetState = null;
 		switch(input) {
-			case 1:System.out.print(GameMessages.BADEND_1);
-				   System.out.print(GameMessages.BADEND_2);
-				   System.out.print(GameMessages.BADEND_3);
-				   System.out.print(GameMessages.BADEND_4);
+			case 1:System.out.println(GameMessages.BADEND_1);
+				   System.out.println(GameMessages.BADEND_2);
+				   System.out.println(GameMessages.BADEND_3);
+				   System.out.println(GameMessages.BADEND_4);
 				   break;
 
 			case 5: System.out.println(GameMessages.BADEND_3);
-			        System.out.print(GameMessages.BADEND_4);
+			        System.out.println(GameMessages.BADEND_4);
 			        break;
 			
-			case 10: System.out.print(GameMessages.BADEND_2);
+			case 10: System.out.println(GameMessages.BADEND_2);
 			        break;
 			case 2: 
-			case 6: System.out.print(GameMessages.BADEND_2);
-			        System.out.print(GameMessages.BADEND_4);
+			case 6: System.out.println(GameMessages.BADEND_2);
+			        System.out.println(GameMessages.BADEND_4);
 			        break;			
 			case 4: 
-			case 8: System.out.print(GameMessages.BADEND_1);
+			case 8: System.out.println(GameMessages.BADEND_1);
 			        System.out.println(GameMessages.BADEND_3);
 			        break;
 			case 3: 
 			case 7: 
-			case 11: System.out.print(GameMessages.BADEND_1); 
+			case 11: System.out.println(GameMessages.BADEND_1); 
 			         break;
 				
 			case 9: newPlanetState =  StateMars.getInstance(); break;
