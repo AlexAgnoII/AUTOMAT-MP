@@ -192,7 +192,7 @@ public class View extends JFrame{
 		planet_holder.setLayout(null);
 		
 		mars = new PlanetGUI(StateMars.getInstance(), LABEL_SIZE);
-		mars.setBounds(243, 55, 80, 80);
+		mars.setBounds(242, 57, 80, 80);
 		planet_holder.add(mars);
 
 	    mars_A = new PlanetGUI(StateMars_A.getInstance(), LABEL_SIZE);
@@ -204,11 +204,11 @@ public class View extends JFrame{
 	    planet_holder.add(mars_B);
 	    
 		mars_C = new PlanetGUI(StateMars_C.getInstance(), LABEL_SIZE);
-		mars_C.setBounds(243, 283, 80, 80);
+		mars_C.setBounds(243, 319, 80, 80);
 		planet_holder.add(mars_C);
 		
 	    mars_D = new PlanetGUI(StateMars_D.getInstance(), LABEL_SIZE);
-	    mars_D.setBounds(598, 283, 80, 80);
+	    mars_D.setBounds(598, 319, 80, 80);
 	    planet_holder.add(mars_D);
 	    
 	    mars_E = new PlanetGUI(StateMars_E.getInstance(), LABEL_SIZE);
@@ -230,7 +230,7 @@ public class View extends JFrame{
 		
 		//////////////////////////////////////////////
 	    earth = new PlanetGUI(StateEarth.getInstance(), LABEL_SIZE);
-	    earth.setBounds(60, 55, 80, 80);
+	    earth.setBounds(58, 57, 80, 80);
 	    planet_holder.add(earth);
 	    
 		earth_A = new PlanetGUI(StateEarth_A.getInstance(), LABEL_SIZE);
@@ -242,11 +242,11 @@ public class View extends JFrame{
 	    planet_holder.add(earth_B);
 	    
 	    earth_C = new PlanetGUI(StateEarth_C.getInstance(), LABEL_SIZE);
-	    earth_C.setBounds(60, 306, 80, 80);
+	    earth_C.setBounds(60, 319, 80, 80);
 	    planet_holder.add(earth_C);
 	    
 	    earth_D = new PlanetGUI(StateEarth_D.getInstance(), LABEL_SIZE);
-	    earth_D.setBounds(417, 283, 80, 80);
+	    earth_D.setBounds(417, 319, 80, 80);
 	    planet_holder.add(earth_D);
 	    
 	    earth_E = new PlanetGUI(StateEarth_E.getInstance(), LABEL_SIZE);
