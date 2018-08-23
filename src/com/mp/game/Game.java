@@ -102,6 +102,7 @@ public class Game {
 	
 	public void reset() {
 		input = 0;
+		controller.reset();
 		initializeWorld();
 	}
 	

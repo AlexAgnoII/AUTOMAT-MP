@@ -85,6 +85,12 @@ public class View extends JFrame{
 		currentPlanet = planet;
 	}
 	
+	public void reset()  {
+		PlanetGUI currentPanel = findPlanet(currentPlanet);
+		currentPanel.isActive(false);
+		currentPlanet = StateEarth.getInstance();
+	}
+	
 	public PlanetGUI findPlanet(PlanetState  planet) {
 		
 		if(planet instanceof StateEarth) {
@@ -268,10 +274,5 @@ public class View extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Automaton");
 		getContentPane().setLayout(null);
-		
-		
-		
-		
-
 	}
 }
