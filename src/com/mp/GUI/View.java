@@ -3,12 +3,14 @@ package com.mp.GUI;
 import java.awt.Graphics;
 //import java.awt.Image;
 import java.awt.LayoutManager;
+import java.awt.Window;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import com.mp.GUI.planets.PlanetGUI;
 import com.mp.gameAbstracts.PlanetState;
@@ -38,25 +40,24 @@ public class View extends JFrame{
 	private PlanetState currentPlanet;
 	private JPanel planet_holder;
 	
-	private JPanel earth;
-	private JPanel earth_A;
-	private JPanel earth_B;
-	private JPanel earth_C;
-	private JPanel earth_D;
-	private JPanel earth_E;
-	private JPanel earth_F;
-	private JPanel earth_G;
-	private JPanel earth_H;
-	
-	private JPanel mars;
-	private JPanel mars_A;
-	private JPanel mars_B;
-	private JPanel mars_C;
-	private JPanel mars_D;
-	private JPanel mars_E;
-	private JPanel mars_F;
-	private JPanel mars_G;
-	private JPanel mars_H;
+	private PlanetGUI earth,
+	               earth_A,
+				   earth_B,
+				   earth_C,
+			       earth_D,
+			       earth_E,
+				   earth_F,
+				   earth_G,
+				   earth_H,
+				   mars,
+				   mars_A,
+				   mars_B,
+				   mars_C,
+				   mars_D,
+				   mars_E,
+				   mars_F,
+				   mars_G,
+				   mars_H;
 	
 	public static final int CIRLCE_SIZE = 80;
 	private final int LABEL_SIZE =  CIRLCE_SIZE;
@@ -67,98 +68,101 @@ public class View extends JFrame{
 		addPlanets();
 		this.currentPlanet = StateEarth.getInstance();
 		
-		
+		//show the screen
+		this.setVisible(true);
 	}
 
 	/**
 	 * Updates the automaton to show where the current user is.
 	 */
 	public void update(PlanetState planet) {
+		//set current planet's color to original.
+		PlanetGUI currentPanel = findPlanet(currentPlanet);
+		PlanetGUI nextPanel = findPlanet(planet);
 		
-		if(currentPlanet instanceof StateEarth) {
-			
+		currentPanel.isActive(false);
+		nextPanel.isActive(true);
+		currentPlanet = planet;
+	}
+	
+	public PlanetGUI findPlanet(PlanetState  planet) {
+		
+		if(planet instanceof StateEarth) {
+			return earth;
 		}
 		
-		else if(currentPlanet instanceof StateEarth_A) {
-			
+		else if(planet instanceof StateEarth_A) {
+			return earth_A;
 		}
 		
-		else if(currentPlanet instanceof StateEarth_B) {
-			
+		else if(planet instanceof StateEarth_B) {
+			return earth_B;
 		}
 		
-		else if(currentPlanet instanceof StateEarth_C) {
-			
+		else if(planet instanceof StateEarth_C) {
+			return earth_C;
 		}
 		
-		else if(currentPlanet instanceof StateEarth_D) {
-			
+		else if(planet instanceof StateEarth_D) {
+			return earth_D;
 		}
 		
-		else if(currentPlanet instanceof StateEarth_E) {
-			
+		else if(planet instanceof StateEarth_E) {
+			return earth_E;
 		}
 		
-		else if(currentPlanet instanceof StateEarth_F) {
-			
+		else if(planet instanceof StateEarth_F) {
+			return earth_F;
 		}
 		
-		else if(currentPlanet instanceof StateEarth_G) {
-			
+		else if(planet instanceof StateEarth_G) {
+			return earth_G;
 		}
 		
-		else if(currentPlanet instanceof StateEarth_H) {
-			
+		else if(planet instanceof StateEarth_H) {
+			return earth_H;
 		}
 		
-		else if(currentPlanet instanceof StateMars) {
-			
+		else if(planet instanceof StateMars) {
+			return mars;
 		}
 		
-		else if(currentPlanet instanceof StateMars_A) {
-			
+		else if(planet instanceof StateMars_A) {
+			return mars_A;
 		}
 		
-		else if(currentPlanet instanceof StateMars_B) {
-			
+		else if(planet instanceof StateMars_B) {
+			return mars_B;
 		}
 		
-		else if(currentPlanet instanceof StateMars_C) {
-			
+		else if(planet instanceof StateMars_C) {
+			return mars_C;
 		}
 		
-		else if(currentPlanet instanceof StateMars_D) {
-			
+		else if(planet instanceof StateMars_D) {
+			return mars_D;
 		}
 		
-		else if(currentPlanet instanceof StateMars_E) {
-			
+		else if(planet instanceof StateMars_E) {
+			return mars_E;
 		}
 		
-		else if(currentPlanet instanceof StateMars_F) {
-			
+		else if(planet instanceof StateMars_F) {
+			return mars_F;
 		}
 		
-		else if(currentPlanet instanceof StateMars_G) {
-			
+		else if(planet instanceof StateMars_G) {
+			return mars_G;
 		}
 		
-		else if(currentPlanet instanceof StateMars_H) {
-			
+		else if(planet instanceof StateMars_H) {
+			return mars_H;
 		}
 		
 		else {
 			System.out.println("What is this planet??");
+			throw new NullPointerException();
 		}
-		
-	}
-	
-	private void setColor() {
-		
-	}
-	
-	private void resetColor() {
-		
 	}
 	
 	private void addPlanets()  {
@@ -166,7 +170,6 @@ public class View extends JFrame{
 		
 		planet_holder = new JPanel() {
 			public void paintComponent(Graphics g) {
-				this.setVisible(true);
 				try {
 					BufferedImage img = ImageIO.read(View.class.getResource("/images/edges.png"));
 					
@@ -177,7 +180,8 @@ public class View extends JFrame{
 				}
 			}
 		};
-		planet_holder.setBounds(0, 0, 794, 800);
+		
+		planet_holder.setBounds(0, 0, 794, 771);
 		getContentPane().add(planet_holder);
 		planet_holder.setLayout(null);
 		
@@ -193,29 +197,29 @@ public class View extends JFrame{
 	    mars_B.setBounds(598, 178, 80, 80);
 	    planet_holder.add(mars_B);
 	    
-//		mars_C = new PlanetGUI(StateMars_C.getInstance(), LABEL_SIZE);
-//		mars_C.setBounds(639, 283, 80, 80);
-//		planet_holder.add(mars_C);
-//		
-//	    mars_D = new PlanetGUI(StateMars_D.getInstance(), LABEL_SIZE);
-//	    mars_D.setBounds(295, 503, 80, 80);
-//	    planet_holder.add(mars_D);
-//	    
-//	    mars_E = new PlanetGUI(StateMars_E.getInstance(), LABEL_SIZE);
-//	    mars_E.setBounds(457, 383, 80, 80);
-//	    planet_holder.add(mars_E);
-//		
-//		mars_F = new PlanetGUI(StateMars_F.getInstance(), LABEL_SIZE);
-//		mars_F.setBounds(623, 401, 80, 80);
-//		planet_holder.add(mars_F);
-//		
-//		mars_G = new PlanetGUI(StateMars_G.getInstance(), LABEL_SIZE);
-//		mars_G.setBounds(75, 515, 80, 80);
-//		planet_holder.add(mars_G);
-//		
-//	    mars_H = new PlanetGUI(StateMars_H.getInstance(), LABEL_SIZE);
-//	    mars_H.setBounds(189, 532, 80, 80);
-//	    planet_holder.add(mars_H);
+		mars_C = new PlanetGUI(StateMars_C.getInstance(), LABEL_SIZE);
+		mars_C.setBounds(639, 283, 80, 80);
+		planet_holder.add(mars_C);
+		
+	    mars_D = new PlanetGUI(StateMars_D.getInstance(), LABEL_SIZE);
+	    mars_D.setBounds(295, 503, 80, 80);
+	    planet_holder.add(mars_D);
+	    
+	    mars_E = new PlanetGUI(StateMars_E.getInstance(), LABEL_SIZE);
+	    mars_E.setBounds(457, 383, 80, 80);
+	    planet_holder.add(mars_E);
+		
+		mars_F = new PlanetGUI(StateMars_F.getInstance(), LABEL_SIZE);
+		mars_F.setBounds(623, 401, 80, 80);
+		planet_holder.add(mars_F);
+		
+		mars_G = new PlanetGUI(StateMars_G.getInstance(), LABEL_SIZE);
+		mars_G.setBounds(75, 515, 80, 80);
+		planet_holder.add(mars_G);
+		
+	    mars_H = new PlanetGUI(StateMars_H.getInstance(), LABEL_SIZE);
+	    mars_H.setBounds(189, 532, 80, 80);
+	    planet_holder.add(mars_H);
 		
 		
 		//////////////////////////////////////////////
@@ -230,36 +234,31 @@ public class View extends JFrame{
 	    earth_B = new PlanetGUI(StateEarth_B.getInstance(), LABEL_SIZE);
 	    earth_B.setBounds(427, 178, 80, 80);
 	    planet_holder.add(earth_B);
-//	    
-//	    earth_C = new PlanetGUI(StateEarth_C.getInstance(), LABEL_SIZE);
-//	    earth_C.setBounds(210, 291, 80, 80);
-//	    planet_holder.add(earth_C);
-//	    
-//	    earth_D = new PlanetGUI(StateEarth_D.getInstance(), LABEL_SIZE);
-//	    earth_D.setBounds(512, 401, 80, 80);
-//	    planet_holder.add(earth_D);
-//	    
-//	    earth_E = new PlanetGUI(StateEarth_E.getInstance(), LABEL_SIZE);
-//	    earth_E.setBounds(639, 485, 80, 80);
-//	    planet_holder.add(earth_E);
-//	    
-//	    earth_F = new PlanetGUI(StateEarth_F.getInstance(), LABEL_SIZE);
-//	    earth_F.setBounds(350, 431, 80, 80);
-//	    planet_holder.add(earth_F);
-//	    
-//	    earth_G = new PlanetGUI(StateEarth_G.getInstance(), LABEL_SIZE);
-//	    earth_G.setBounds(623, 178, 80, 80);
-//	    planet_holder.add(earth_G);
-//	    
-//		earth_H = new PlanetGUI(StateEarth_H.getInstance(), LABEL_SIZE);
-//		earth_H.setBounds(380, 546, 80, 80);
-//		planet_holder.add(earth_H);
-		
-		
-
-		
-
 	    
+	    earth_C = new PlanetGUI(StateEarth_C.getInstance(), LABEL_SIZE);
+	    earth_C.setBounds(210, 291, 80, 80);
+	    planet_holder.add(earth_C);
+	    
+	    earth_D = new PlanetGUI(StateEarth_D.getInstance(), LABEL_SIZE);
+	    earth_D.setBounds(512, 401, 80, 80);
+	    planet_holder.add(earth_D);
+	    
+	    earth_E = new PlanetGUI(StateEarth_E.getInstance(), LABEL_SIZE);
+	    earth_E.setBounds(639, 485, 80, 80);
+	    planet_holder.add(earth_E);
+	    
+	    earth_F = new PlanetGUI(StateEarth_F.getInstance(), LABEL_SIZE);
+	    earth_F.setBounds(350, 431, 80, 80);
+	    planet_holder.add(earth_F);
+	    
+	    earth_G = new PlanetGUI(StateEarth_G.getInstance(), LABEL_SIZE);
+	    earth_G.setBounds(623, 178, 80, 80);
+	    planet_holder.add(earth_G);
+	    
+		earth_H = new PlanetGUI(StateEarth_H.getInstance(), LABEL_SIZE);
+		earth_H.setBounds(380, 546, 80, 80);
+		planet_holder.add(earth_H);
+
 	}
 	
 	private void initializeScreen() {
@@ -273,7 +272,6 @@ public class View extends JFrame{
 		
 		
 		
-		//show the screen
-		this.setVisible(true);
+
 	}
 }

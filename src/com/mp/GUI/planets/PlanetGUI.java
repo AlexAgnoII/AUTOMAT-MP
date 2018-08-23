@@ -27,50 +27,14 @@ public class PlanetGUI extends JPanel {
 	    this.planetState = planetState;
 	    this.setBackground(Color.WHITE);
 	    
-	    text = new JLabel(planetState.getName());
-	    text.setForeground(Color.WHITE);
+	    this.text = new JLabel(planetState.getName());
+	    this.text.setForeground(Color.WHITE);
 	    this.add(text);
-	    String name = planetState.getName();
-	    
-	    this.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				System.out.println(name);
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-	    	
-	    });
 	    
 	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		this.setOpaque(false) ;
 	    g.setColor(Color.black); 
 	    g.drawOval(0,0, View.CIRLCE_SIZE, View.CIRLCE_SIZE); 
 	    g.setColor(Color.red); 
@@ -81,11 +45,11 @@ public class PlanetGUI extends JPanel {
 	
 	public void isActive(boolean active) {
 		if(active) {
-			
+		    this.text.setForeground(Color.GREEN);
 		}
 		
 		else {
-			
+		    this.text.setForeground(Color.WHITE);
 		}
 	}
 
