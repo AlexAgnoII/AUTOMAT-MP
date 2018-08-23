@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.mp.GUI.Controller;
 import com.mp.gameAbstracts.PlanetState;
 import com.mp.planetStates.StateEarth;
 import com.mp.planetStates.StateMars_G;
@@ -13,16 +14,18 @@ public class Game {
 	private Scanner sc = new Scanner(System.in);
 	private int input = 0;
 	private PlanetState planet;
-	private Instruction instruction;
+	private GameInstruction instruction;
 	private List<Integer> validChoices = new ArrayList<Integer>();
 	private final int YES = 1;
 	private final int NO = 2;
 	private final int INSTRUCTION_PLEASE = 0;
 	private final int STOP = -1;
+	private Controller controller;
 
 	
 	public Game() {
-		instruction = Instruction.getInstance();
+		controller = new Controller();
+		instruction = GameInstruction.getInstance();
 		validChoices.add(this.YES);
 		validChoices.add(this.NO);
 		initializeWorld();
@@ -33,6 +36,7 @@ public class Game {
 		
 		while(input != this.STOP) {
 			planet.display();
+			controller.update(planet);
 			
 			do {
 				System.out.print("Choice: ");

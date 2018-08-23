@@ -5,22 +5,22 @@ import java.util.Scanner;
 import com.mp.gameAbstracts.PlanetState;
 import com.mp.planetStates.StateEarth;
 
-public class Instruction {
+public class GameInstruction {
 	
 	private Scanner sc = new Scanner(System.in);
 	private PlanetState start;
 	private final int STARTING_PLANET = 1;
 	private final int CURRENT_PLANET = 2;
 	
-	private Instruction() {
+	private GameInstruction() {
 		this.start = StateEarth.getInstance();
 	}
 	
 	private static class Instruction_Holder {
-		private static final Instruction INSTANCE = new Instruction();
+		private static final GameInstruction INSTANCE = new GameInstruction();
 	}
 	
-	public static Instruction getInstance() {
+	public static GameInstruction getInstance() {
 		return Instruction_Holder.INSTANCE;
 	}
 

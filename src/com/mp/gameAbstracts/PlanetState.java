@@ -30,4 +30,9 @@ public abstract class PlanetState implements PLANETState{
 	public List<Integer> getValidChoices() {
 		return this.validChoices;
 	}
+	
+	public String getName() {
+		return this.name;
+		
+	}
 }
