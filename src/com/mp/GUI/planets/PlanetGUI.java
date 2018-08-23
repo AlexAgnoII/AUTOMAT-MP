@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 import com.mp.GUI.View;
 import com.mp.gameAbstracts.PlanetState;
+import com.mp.planetStates.StateMars_G;
 
 public class PlanetGUI extends JPanel {
 	
@@ -22,9 +23,10 @@ public class PlanetGUI extends JPanel {
 	private PlanetState planetState;
 	private JLabel text;
 	private Color color;
-	private final Color COLOR_ACTIVE = Color.GREEN;
+	private final Color COLOR_ACTIVE = Color.ORANGE;
 	private final Color COLOR_INACTIVE = Color.black;
 	private final Color TEXT_COLOR = Color.WHITE;
+	private final Color COLOR_WIN = Color.GREEN;
 	
 	public PlanetGUI(PlanetState planetState, int size) {
 	    color = color.BLACK;
@@ -40,7 +42,8 @@ public class PlanetGUI extends JPanel {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-	    g.setColor(color); 
+		
+		g.setColor(color); 
 	    g.drawOval(0,0, View.CIRLCE_SIZE, View.CIRLCE_SIZE); 
 	    g.setColor(color); 
 	    g.fillOval(0,0, View.CIRLCE_SIZE, View.CIRLCE_SIZE); 
@@ -51,7 +54,9 @@ public class PlanetGUI extends JPanel {
 	public void isActive(boolean active) {
 		if(active) {
 		    //this.text.setForeground(Color.GREEN);
-		    color = this.COLOR_ACTIVE;
+			if(planetState instanceof StateMars_G)
+				color = this.COLOR_WIN;
+			else color = this.COLOR_ACTIVE;
 		}
 		
 		else {

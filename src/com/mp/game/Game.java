@@ -52,7 +52,12 @@ public class Game {
 			
 			if(planet == null || planet instanceof StateMars_G) {
 				input = this.STOP;
+				
+				if(planet != null)
+					controller.update(planet);
 			}
+			
+
 		}
 		
 		gameOver();
