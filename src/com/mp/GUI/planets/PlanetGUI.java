@@ -21,23 +21,28 @@ public class PlanetGUI extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private PlanetState planetState;
 	private JLabel text;
+	private Color color;
+	private final Color COLOR_ACTIVE = Color.GREEN;
+	private final Color COLOR_INACTIVE = Color.black;
+	private final Color TEXT_COLOR = Color.WHITE;
 	
 	public PlanetGUI(PlanetState planetState, int size) {
+	    color = color.BLACK;
+	    this.setOpaque(false);
 	    this.setSize(size, size);
 	    this.planetState = planetState;
 	    this.setBackground(Color.WHITE);
-	    
 	    this.text = new JLabel(planetState.getName());
-	    this.text.setForeground(Color.WHITE);
+	    this.text.setForeground(this.TEXT_COLOR);
 	    this.add(text);
 	    
 	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-	    g.setColor(Color.black); 
+	    g.setColor(color); 
 	    g.drawOval(0,0, View.CIRLCE_SIZE, View.CIRLCE_SIZE); 
-	    g.setColor(Color.red); 
+	    g.setColor(color); 
 	    g.fillOval(0,0, View.CIRLCE_SIZE, View.CIRLCE_SIZE); 
 	}
 	
@@ -45,12 +50,16 @@ public class PlanetGUI extends JPanel {
 	
 	public void isActive(boolean active) {
 		if(active) {
-		    this.text.setForeground(Color.GREEN);
+		    //this.text.setForeground(Color.GREEN);
+		    color = this.COLOR_ACTIVE;
 		}
 		
 		else {
-		    this.text.setForeground(Color.WHITE);
+		    //this.text.setForeground(Color.WHITE);
+		    color = this.COLOR_INACTIVE;
 		}
+		
+	    this.repaint();
 	}
 
 }
