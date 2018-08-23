@@ -58,7 +58,7 @@ public class StateMars_F extends PlanetState{
 			case 3:
 			case 6: System.out.println(GameMessages.BADEND_2);       
 	        		break;
-	        
+			case 2: newPlanetState = StateEarth_F.getInstance(); break;
 			case 5: newPlanetState = StateEarth_G.getInstance(); break;
 			case 7: newPlanetState = StateEarth_D.getInstance(); break;
 			default: System.out.println("DEAD (Mars F)");

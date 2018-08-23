@@ -14,6 +14,10 @@ public class Controller {
 		view.update(planet);
 	}
 	
+	public void update(PlanetState planet, boolean win) {
+		view.update(planet, win);
+	}
+	
 	public void reset()  {
 		view.reset();
 	}

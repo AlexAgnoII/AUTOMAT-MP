@@ -53,8 +53,9 @@ public class Game {
 			if(planet == null || planet instanceof StateMars_G) {
 				input = this.STOP;
 				
-				if(planet != null)
-					controller.update(planet);
+				if(planet != null && planet instanceof StateMars_G)
+					controller.update(planet, true);
+				else controller.update(planet, false);
 			}
 			
 

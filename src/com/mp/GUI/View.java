@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import com.mp.GUI.planets.PlanetGUI;
 import com.mp.gameAbstracts.PlanetState;
@@ -83,6 +84,25 @@ public class View extends JFrame{
 		currentPanel.isActive(false);
 		nextPanel.isActive(true);
 		currentPlanet = planet;
+	}
+	
+	public void update(PlanetState planet, boolean win) {
+		
+		if(win) {
+			this.update(planet);
+			JOptionPane.showMessageDialog(null,
+				    "Congratulations you won!",
+				    "Winner!",
+				    JOptionPane.INFORMATION_MESSAGE);
+		}
+		
+		else {
+			JOptionPane.showMessageDialog(null,
+				    "You lost!",
+				    "Game Over",
+				    JOptionPane.ERROR_MESSAGE);
+		}
+		
 	}
 	
 	public void reset()  {
